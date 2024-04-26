@@ -13,18 +13,20 @@ const data = await inquirer.prompt(
 
 const randomID = Math.floor(10000 + Math.random() * 90000);
 console.log(chalk.white.bold(chalk.bgBlue(`Student added with the ID ${randomID}`)));
+
+console.log(chalk.white.bold(chalk.bgRed("\n\tThe duration of each 'Main course' is 1 year and costs PKR 2000/=")))
     
 let courseSelection = await inquirer.prompt(
     {
         message: chalk.green.bold("Please select course/ courses you want to enroll in:"),
         type: "checkbox",
         name: "courses",
-        choices:["Web development", "Metaverse", "Block Chain", "Graphic designing", "None"]
+        choices:["Web development", "Metaverse", "Block Chain", "Graphic designing","Python programming", "None"]
     }
 );
 
 if(courseSelection.courses === "None"){
-    console.log(chalk.black.red(chalk.bgRed("Please select any of the course.")));
+    console.log(chalk.black.bold(chalk.bgRed("Please select any of the course.")));
     return;
 };
 
@@ -36,6 +38,7 @@ const moreCourses = await inquirer.prompt(
         default: false,
     }
 );
+console.log(chalk.white.bold(chalk.bgRed("\n\tThe duration of each 'Additional course' is 6 months and costs PKR 3000/=")))
 if(moreCourses.extracourses){
     console.log(chalk.blue("Let's select more courses:"));
     let additionalCourses = await inquirer.prompt(
