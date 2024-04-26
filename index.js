@@ -18,7 +18,6 @@ async function StudentData() {
     });
     if (courseSelection.courses === "None") {
         console.log(chalk.black.bold(chalk.bgRed("Please select any of the course.")));
-        return;
     }
     ;
     const moreCourses = await inquirer.prompt({
